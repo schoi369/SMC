@@ -92,30 +92,21 @@ public class Enemy : MonoBehaviour
 
     private void HandleVisionEnter()
     {
-        //bodyMesh.material.color = Color.white;
         losIndicator.GetComponent<SpriteRenderer>().color = Color.cyan;
     }
 
     private void HandleVisionExit()
     {
-        //bodyMesh.material.color = Color.black;
         losIndicator.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     private void HandleHearingEnter()
     {
-        //bodyMesh.material.color = Color.magenta;
         hearIndicator.GetComponent<SpriteRenderer>().color = Color.magenta;
     }
 
     private void HandleHearingExit()
     {
-        //bodyMesh.material.color = Color.black;
         hearIndicator.GetComponent<SpriteRenderer>().color = Color.white;
-    }
-
-    public int Health
-    {
-        get { return health; }
     }
 }

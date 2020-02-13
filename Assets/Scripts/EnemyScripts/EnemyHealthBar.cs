@@ -42,8 +42,6 @@ public class EnemyHealthBar : MonoBehaviour
 
             healthPointMarkers.Clear();
 
-            var currRenderer = GetComponent<SpriteRenderer>();
-
             float xScale = healthPoint.transform.localScale.x / maxHealth ;
 
             healthPoint.SetActive(true);
