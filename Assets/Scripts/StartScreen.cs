@@ -9,7 +9,7 @@ public class StartScreen : MonoBehaviour
     {
         if (Input.anyKeyDown)
 		{
-            SceneManager.LoadScene("BasicMovementandAnim");
+            SceneManager.LoadScene("Demo");
 		}
     }
 }
