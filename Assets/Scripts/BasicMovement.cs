@@ -5,11 +5,17 @@ using UnityEngine;
 public class BasicMovement : MonoBehaviour
 {
 
-    public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Animator animator;
+
+    Vector2 movement;
+    private float moveSpeed = 2f;
+    private float walkSpeed = 2f;
+    private float sneakSpeed = 0.75f;
+
     public bool faceRight = true;
     public bool isMoving = false;
+
 
     public SpriteRenderer sr;
 
@@ -17,45 +23,29 @@ public class BasicMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    [SerializeField]
-    private float speed = 3;
-    [SerializeField]
-    private float slowSpeed = 1;
-    private Vector3 velocity;
-    // Start is called before the first frame update
-    void Update()
-    {
-        int horizontalMovement = 0;
-        int verticalMovement = 0;
+    // Input
+    void Update() {
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        if (InputMap.Instance.GetInput(Action.RIGHT))
-        {
-            horizontalMovement++;
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            moveSpeed = sneakSpeed;
+            animator.SetBool("ShiftPressed", true);
+        } else {
+            moveSpeed = walkSpeed;
+            animator.SetBool("ShiftPressed", false);
+        }
+
+        if (movement.x < 0) {
+            sr.flipX = true;
+        } else if (movement.x > 0) {
             sr.flipX = false;
         }
-        if (InputMap.Instance.GetInput(Action.LEFT))
-        {
-            horizontalMovement--;
-            sr.flipX = true;
-        }
-        if (InputMap.Instance.GetInput(Action.UP))
-        {
-            verticalMovement++;
-        }
-        if (InputMap.Instance.GetInput(Action.DOWN))
-        {
-            verticalMovement--;
-        }
-        velocity = new Vector3(horizontalMovement, verticalMovement, 0);
-        if (InputMap.Instance.GetInput(Action.SLOW))
-        {
-            transform.position += velocity.normalized * Time.deltaTime * slowSpeed;
-            animator.SetFloat("Speed", velocity.sqrMagnitude);
-        }
-        else
-        {
-            transform.position += velocity.normalized * Time.deltaTime * speed;
-            animator.SetFloat("Speed", velocity.sqrMagnitude);
-        }
+    }
+
+    // Movement
+    void FixedUpdate() {
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
