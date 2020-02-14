@@ -15,7 +15,6 @@ public class EnemyHealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthPointMarkers = new List<GameObject>();
     }
 
     public void removeHealth(int amount)
@@ -40,7 +39,7 @@ public class EnemyHealthBar : MonoBehaviour
             maxHealth = value;
             currHealth = maxHealth;
 
-            healthPointMarkers.Clear();
+            healthPointMarkers = new List<GameObject>();
 
             float xScale = healthPoint.transform.localScale.x / maxHealth ;
 
