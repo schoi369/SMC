@@ -13,6 +13,12 @@ public class EnemyChildDelegate : MonoBehaviour
             parent.OnChildTrigger(childTag, collision, Enemy.TriggerType.Enter);
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (parent != null && childTag != null && collision.tag.Equals("Player"))
+            parent.OnChildTrigger(childTag, collision, Enemy.TriggerType.Stay);
+    }
+
     void OnTriggerExit2D(Collider2D collision)
     {
         if (parent != null && childTag != null && collision.tag.Equals("Player"))
