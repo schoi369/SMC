@@ -24,28 +24,45 @@ public class BasicMovement : MonoBehaviour
     }
 
     // Input
-    void Update() {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        animator.SetFloat("Speed", movement.sqrMagnitude);
-
-        if (Input.GetKey(KeyCode.LeftShift)) {
-            moveSpeed = sneakSpeed;
-            animator.SetBool("ShiftPressed", true);
-        } else {
-            moveSpeed = walkSpeed;
-            animator.SetBool("ShiftPressed", false);
-        }
-
-        if (movement.x < 0) {
-            sr.flipX = true;
-        } else if (movement.x > 0) {
+    [SerializeField]
+    private float speed = 3;
+    [SerializeField]
+    private float slowSpeed = 1;
+    // Start is called before the first frame update
+    void Update()
+    {
+        int horizontalMovement = 0;
+        int verticalMovement = 0;
+        if (InputMap.Instance.GetInput(Action.RIGHT))
+        {
+            horizontalMovement++;
             sr.flipX = false;
         }
-    }
-
-    // Movement
-    void FixedUpdate() {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (InputMap.Instance.GetInput(Action.LEFT))
+        {
+            horizontalMovement--;
+            sr.flipX = true;
+        }
+        if (InputMap.Instance.GetInput(Action.UP))
+        {
+            verticalMovement++;
+        }
+        if (InputMap.Instance.GetInput(Action.DOWN))
+        {
+            verticalMovement--;
+        }
+        Vector2 velocity = new Vector2(horizontalMovement, verticalMovement);
+        if (InputMap.Instance.GetInput(Action.SLOW))
+        {
+            animator.SetBool("ShiftPressed", true);
+            rb.velocity = velocity.normalized * slowSpeed;
+            animator.SetFloat("Speed", velocity.sqrMagnitude);
+        }
+        else
+        {
+            animator.SetBool("ShiftPressed", false);
+            rb.velocity = velocity.normalized * speed;
+            animator.SetFloat("Speed", velocity.sqrMagnitude);
+        }
     }
 }
