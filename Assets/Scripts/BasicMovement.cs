@@ -54,7 +54,7 @@ public class BasicMovement : MonoBehaviour
         Vector2 velocity = new Vector2(horizontalMovement, verticalMovement);
         if (InputMap.Instance.GetInput(Action.SLOW))
         {
-            animator.SetBool("ShiftPressed", true);
+            animator.SetBool("CtrlPressed", true);
             rb.velocity = velocity.normalized * slowSpeed;
             animator.SetFloat("Speed", velocity.sqrMagnitude);
         }
