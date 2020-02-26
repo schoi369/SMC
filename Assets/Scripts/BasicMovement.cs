@@ -60,7 +60,7 @@ public class BasicMovement : MonoBehaviour
         }
         else
         {
-            animator.SetBool("ShiftPressed", false);
+            animator.SetBool("CtrlPressed", false);
             rb.velocity = velocity.normalized * speed;
             animator.SetFloat("Speed", velocity.sqrMagnitude);
         }
