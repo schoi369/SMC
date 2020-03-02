@@ -7,23 +7,24 @@ public class BasicMovement : MonoBehaviour
 
     public Rigidbody2D rb;
     public Animator animator;
+    public SpriteRenderer sr;
+
+    public HealthBar healthBar;
+    public int maxHealth = 100;
+    public int currentHealth;
 
     Vector2 movement;
-    private float moveSpeed = 2f;
-    private float walkSpeed = 2f;
-    private float sneakSpeed = 0.75f;
 
     public float meleeRange = 0.65f;
-    public float meleeCooldown = 0.5f;
+    public float meleeCooldown = 0.0f;
 
     public bool faceRight = true;
     public bool isMoving = false;
     public bool isSneaking = false;
-
     private bool isAttacking = false;
     private float lastMeleeTime = 0.0f;
 
-    public SpriteRenderer sr;
+
 
     public void Awake() {
         sr = GetComponent<SpriteRenderer>();
@@ -34,9 +35,20 @@ public class BasicMovement : MonoBehaviour
     private float speed = 3;
     [SerializeField]
     private float slowSpeed = 1;
-    // Start is called before the first frame update
+
+    void Start() {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+    }
+
     void Update()
     {
+
+        // TEST FOR PLAYER HEALTH
+        if(Input.GetKeyDown(KeyCode.LeftAlt)) {
+            TakeDamage(10);
+        }
+
         int horizontalMovement = 0;
         int verticalMovement = 0;
 
@@ -106,4 +118,10 @@ public class BasicMovement : MonoBehaviour
         lastMeleeTime = Time.time;
         isAttacking = false;
     }
+
+    void TakeDamage(int damage) {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+    }
+
 }
