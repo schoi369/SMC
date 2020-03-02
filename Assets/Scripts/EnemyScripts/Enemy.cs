@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
 
     private bool isDead;
     private PolygonCollider2D losCollider;
+    private SpriteRenderer sr;
 
     void Start()
     {
@@ -42,16 +43,17 @@ public class Enemy : MonoBehaviour
 
         healthBar.MaxHealth = health;
 
+        sr = GetComponent<SpriteRenderer>();
         losCollider = lineOfSight.GetComponent<PolygonCollider2D>();
+
+        if (!sr.flipX)
+        {
+            lineOfSight.transform.Rotate(0f, 0f, 180f);
+        }
     }
 
     void Update()
     {
-        // just for debugging
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Damage(1);
-        }
     }
 
     public void Damage(int amount)
@@ -86,8 +88,9 @@ public class Enemy : MonoBehaviour
 
             case "Ear": // Hearing radius triggered
                 if (triggerType == TriggerType.Enter)
-                    HandleHearingEnter();
-                else if (triggerType == TriggerType.Stay) {}
+                    HandleHearingEnter(collision.gameObject);
+                else if (triggerType == TriggerType.Stay)
+                    HandleHearingStay(collision.gameObject);
                 else
                     HandleHearingExit();
                 break;
@@ -161,7 +164,7 @@ public class Enemy : MonoBehaviour
         Debug.DrawRay(lowerLeftTarget, Vector3.left * 0.1f, Color.green, 1f);
         */
 
-        int layerMask = ~(1 << LayerMask.NameToLayer("Enemy"));
+        int layerMask = ~((1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("Indicator")));
         bool hasHit = false;
 
         RaycastHit2D upperVisCheck = Physics2D.Raycast(upperTarget, transform.right, Vector2.Distance(transform.position, other.transform.position), layerMask);
@@ -214,13 +217,27 @@ public class Enemy : MonoBehaviour
         losIndicator.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
-    private void HandleHearingEnter()
+    private void HandleHearingEnter(GameObject player)
     {
-        hearIndicator.GetComponent<SpriteRenderer>().color = Color.magenta;
+        if (!player.GetComponent<BasicMovement>().isSneaking)
+            hearIndicator.GetComponent<SpriteRenderer>().color = Color.magenta;
+    }
+
+    private void HandleHearingStay(GameObject player)
+    {
+        if (!player.GetComponent<BasicMovement>().isSneaking)
+            hearIndicator.GetComponent<SpriteRenderer>().color = Color.magenta;
+        else
+            hearIndicator.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     private void HandleHearingExit()
     {
         hearIndicator.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    public SpriteRenderer SpriteRenderer
+    {
+        get { return sr; }
     }
 }

@@ -354,7 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4331616447954918077}
   - component: {fileID: 4331616447954918076}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: hearIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4331616448421444102}
   - component: {fileID: 4331616448421444101}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: losIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 4331616448495717836}
   m_Layer: 8
   m_Name: BasicEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -720,6 +720,7 @@ GameObject:
   - component: {fileID: 4331616448628608898}
   - component: {fileID: 4331616448628608899}
   - component: {fileID: 4331616448628608897}
+  - component: {fileID: 3484460238185850183}
   m_Layer: 0
   m_Name: HP_bar
   m_TagString: Untagged
@@ -811,6 +812,17 @@ MonoBehaviour:
   - {fileID: 4331616447659494176}
   - {fileID: 4331616448919682173}
   healthMask: {fileID: 4331616447370729016}
+--- !u!210 &3484460238185850183
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331616448628608896}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
 --- !u!1 &4331616448919682173
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +913,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4331616449282350555}
   - component: {fileID: 4331616449282350372}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LineOfSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -966,7 +978,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4331616449363313216}
   - component: {fileID: 4331616449363313217}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: HearingRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
