@@ -25,7 +25,7 @@ public class EnemyHealthBar : MonoBehaviour
     public void removeHealth(int amount)
     {
         if (currHealth >= 0) {
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < amount && currHealth > 0; i++)
             {
                 healthBars[currHealth - 1].GetComponent<SpriteRenderer>().color = Color.white;
                 currHealth--;
@@ -70,7 +70,7 @@ public class EnemyHealthBar : MonoBehaviour
             currProgress += animSpeed;
             yield return new WaitForSeconds(animSpeed / 2.0f);
         }
-        healthMask.transform.position = healthMask.transform.position;
+        healthMask.transform.position = healthBars[healthBar].transform.position;
 
         isAnimating = false;
 
