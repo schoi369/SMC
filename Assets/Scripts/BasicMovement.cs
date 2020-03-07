@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BasicMovement : MonoBehaviour
 {
@@ -119,8 +120,10 @@ public class BasicMovement : MonoBehaviour
         isAttacking = false;
     }
 
-    void TakeDamage(int damage) {
+    public void TakeDamage(int damage) {
         currentHealth -= damage;
+        if (currentHealth <= 0)
+            SceneManager.LoadScene("GameFAIL");
         healthBar.SetHealth(currentHealth);
     }
 
