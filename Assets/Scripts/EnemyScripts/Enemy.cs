@@ -36,6 +36,12 @@ public class Enemy : MonoBehaviour
     private PolygonCollider2D losCollider;
     private SpriteRenderer sr;
 
+    GameObject AlertLevelText;
+
+    void Awake() {
+        AlertLevelText = GameObject.Find("Alert Level Text");
+    }
+
     void Start()
     {
         playerTarget = null;
@@ -130,6 +136,9 @@ public class Enemy : MonoBehaviour
         if (CanSeePlayer(other))
         {
             losIndicator.GetComponent<SpriteRenderer>().color = Color.cyan;
+            AlertLevelText.GetComponent<AlertLevel>().increaseAlertPercentage(10);
+            AlertLevelText.GetComponent<AlertLevel>().isInSightOrVision = true;;
+
         }
         else
         {
@@ -240,12 +249,17 @@ public class Enemy : MonoBehaviour
     private void HandleVisionExit()
     {
         losIndicator.GetComponent<SpriteRenderer>().color = Color.white;
+        AlertLevelText.GetComponent<AlertLevel>().isInSightOrVision = false;
     }
 
     private void HandleHearingEnter(GameObject player)
     {
-        if (!player.GetComponent<BasicMovement>().isSneaking)
+        if (!player.GetComponent<BasicMovement>().isSneaking) {
             hearIndicator.GetComponent<SpriteRenderer>().color = Color.magenta;
+            AlertLevelText.GetComponent<AlertLevel>().increaseAlertPercentage(10);
+            AlertLevelText.GetComponent<AlertLevel>().isInSightOrVision = true;
+        }
+        
     }
 
     private void HandleHearingStay(GameObject player)
@@ -259,6 +273,7 @@ public class Enemy : MonoBehaviour
     private void HandleHearingExit()
     {
         hearIndicator.GetComponent<SpriteRenderer>().color = Color.white;
+        AlertLevelText.GetComponent<AlertLevel>().isInSightOrVision = false;
     }
 
     public SpriteRenderer SpriteRenderer

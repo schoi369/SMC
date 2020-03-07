@@ -46,9 +46,9 @@ public class BasicMovement : MonoBehaviour
     {
 
         // TEST FOR PLAYER HEALTH
-        if(Input.GetKeyDown(KeyCode.LeftAlt)) {
-            TakeDamage(10);
-        }
+        // if(Input.GetKeyDown(KeyCode.LeftAlt)) {
+        //     TakeDamage(10);
+        // }
 
         int horizontalMovement = 0;
         int verticalMovement = 0;
