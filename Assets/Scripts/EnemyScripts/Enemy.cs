@@ -20,19 +20,27 @@ public class Enemy : MonoBehaviour
      * Changing the radius of the Circle Collider 2D component will change its area.
      */
 
+    public float attackCooldown = 3.0f;
+
     public GameObject lineOfSight;
     public GameObject losIndicator; //For demo purposes
     public GameObject hearingRadius;
     public GameObject hearIndicator; //For demo purposes
+    public GameObject attackZone;
 
     public MeshRenderer bodyMesh;
 
+    private BasicMovement playerTarget;
     private bool isDead;
+    private float nextAttackTime;
     private PolygonCollider2D losCollider;
     private SpriteRenderer sr;
 
     void Start()
     {
+        playerTarget = null;
+        nextAttackTime = 0.0f;
+
         EnemyChildDelegate losChild = lineOfSight.AddComponent<EnemyChildDelegate>();
         losChild.Parent = this;
         losChild.ChildTag = "LoS";
@@ -40,6 +48,10 @@ public class Enemy : MonoBehaviour
         EnemyChildDelegate earChild = hearingRadius.AddComponent<EnemyChildDelegate>();
         earChild.Parent = this;
         earChild.ChildTag = "Ear";
+
+        EnemyChildDelegate atkChild = attackZone.AddComponent<EnemyChildDelegate>();
+        atkChild.Parent = this;
+        atkChild.ChildTag = "Atk";
 
         healthBar.MaxHealth = health;
 
@@ -49,11 +61,17 @@ public class Enemy : MonoBehaviour
         if (!sr.flipX)
         {
             lineOfSight.transform.Rotate(0f, 0f, 180f);
+            attackZone.transform.Rotate(0f, 0f, 180f);
         }
     }
 
     void Update()
     {
+        if (playerTarget != null && Time.time >= nextAttackTime)
+        {
+            playerTarget.TakeDamage(10);
+            nextAttackTime = Time.time + attackCooldown;
+        }
     }
 
     public void Damage(int amount)
@@ -93,6 +111,13 @@ public class Enemy : MonoBehaviour
                     HandleHearingStay(collision.gameObject);
                 else
                     HandleHearingExit();
+                break;
+            case "Atk": // Attack zone triggered
+                if (triggerType == TriggerType.Enter)
+                    playerTarget = collision.gameObject.GetComponent<BasicMovement>();
+                else if (triggerType == TriggerType.Stay) { }
+                else
+                    playerTarget = null;
                 break;
 
             default:
