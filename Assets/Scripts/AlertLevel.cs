@@ -4,19 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class AlertLevel : MonoBehaviour
-{
+{ 
     public int currentAlertPercentage;
     public int minAlertPercentage = 0;
     public int maxAlertPercentage = 100;
-    public bool isDetected;
-    public bool isInSightOrVision;
+    public bool isDetected;    
 
     public Text alertLevelText;
+
+    private int detectionCounter;
 
     // Start is called before the first frame update
     void Start()
     {
-        isInSightOrVision = false;
+        detectionCounter = 0;
         currentAlertPercentage = minAlertPercentage;
 
         InvokeRepeating("decreaseAlertPercentage", 1.0f, 1.0f);
@@ -29,23 +30,35 @@ public class AlertLevel : MonoBehaviour
         {
             increaseAlertPercentage(10);
         }
-        updateText();
+        //updateText();
     }
 
-    public void decreaseAlertPercentage() {
-        if (currentAlertPercentage > minAlertPercentage && !isInSightOrVision) {
+    private void decreaseAlertPercentage() {
+        if (currentAlertPercentage > minAlertPercentage && detectionCounter == 0) {
             currentAlertPercentage = currentAlertPercentage - 1;
+            updateText();
         }
     }
 
     // testing purpose
     public void increaseAlertPercentage(int amount) {
         if (currentAlertPercentage < maxAlertPercentage) {
-            currentAlertPercentage = currentAlertPercentage + amount;
+            currentAlertPercentage = Mathf.Min(currentAlertPercentage + amount, 100);
+            updateText();
         }
     }
 
-    void updateText()
+    public void incDetectionCount()
+    {
+        detectionCounter++;
+    }
+
+    public void decDetectionCount()
+    {
+        detectionCounter--;
+    }
+
+    private void updateText()
     {
         alertLevelText.text = currentAlertPercentage.ToString() + "%";
     }
