@@ -34,18 +34,16 @@ public class Enemy : MonoBehaviour
     private bool isDead;
     private float nextAttackTime;
     private PolygonCollider2D losCollider;
+    private bool canSeePlayer;
+    private bool canHearPlayer;
     private SpriteRenderer sr;
-
-    GameObject AlertLevelText;
-
-    void Awake() {
-        AlertLevelText = GameObject.Find("Alert Level Text");
-    }
 
     void Start()
     {
         playerTarget = null;
         nextAttackTime = 0.0f;
+        canSeePlayer = false;
+        canHearPlayer = false;
 
         EnemyChildDelegate losChild = lineOfSight.AddComponent<EnemyChildDelegate>();
         losChild.Parent = this;
@@ -107,7 +105,7 @@ public class Enemy : MonoBehaviour
                 else if (triggerType == TriggerType.Stay)
                     HandleVisionStay(collision.gameObject);
                 else
-                    HandleVisionExit();
+                    HandleVisionExit(collision.gameObject);
                 break;
 
             case "Ear": // Hearing radius triggered
@@ -116,7 +114,7 @@ public class Enemy : MonoBehaviour
                 else if (triggerType == TriggerType.Stay)
                     HandleHearingStay(collision.gameObject);
                 else
-                    HandleHearingExit();
+                    HandleHearingExit(collision.gameObject);
                 break;
             case "Atk": // Attack zone triggered
                 if (triggerType == TriggerType.Enter)
@@ -135,10 +133,11 @@ public class Enemy : MonoBehaviour
     {
         if (CanSeePlayer(other))
         {
-            losIndicator.GetComponent<SpriteRenderer>().color = Color.cyan;
-            AlertLevelText.GetComponent<AlertLevel>().increaseAlertPercentage(10);
-            AlertLevelText.GetComponent<AlertLevel>().isInSightOrVision = true;;
+            canSeePlayer = true;
+            other.GetComponent<BasicMovement>().alertLevel.incDetectionCount();
+            other.GetComponent<BasicMovement>().alertLevel.increaseAlertPercentage(10);
 
+            losIndicator.GetComponent<SpriteRenderer>().color = Color.cyan;
         }
         else
         {
@@ -150,10 +149,23 @@ public class Enemy : MonoBehaviour
     {
         if (CanSeePlayer(other))
         {
+            if (!canSeePlayer)
+            {
+                canSeePlayer = true;
+                other.GetComponent<BasicMovement>().alertLevel.incDetectionCount();
+                other.GetComponent<BasicMovement>().alertLevel.increaseAlertPercentage(10);
+            }
+
             losIndicator.GetComponent<SpriteRenderer>().color = Color.cyan;
         }
         else
         {
+            if (canSeePlayer)
+            {
+                canSeePlayer = false;
+                other.GetComponent<BasicMovement>().alertLevel.decDetectionCount();
+            }
+
             losIndicator.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
@@ -246,34 +258,57 @@ public class Enemy : MonoBehaviour
         return hasHit;
     }
 
-    private void HandleVisionExit()
+    private void HandleVisionExit(GameObject other)
     {
+        if (canSeePlayer)
+        {
+            canSeePlayer = false;
+            other.GetComponent<BasicMovement>().alertLevel.decDetectionCount();
+        }
         losIndicator.GetComponent<SpriteRenderer>().color = Color.white;
-        AlertLevelText.GetComponent<AlertLevel>().isInSightOrVision = false;
     }
 
     private void HandleHearingEnter(GameObject player)
     {
         if (!player.GetComponent<BasicMovement>().isSneaking) {
+            canHearPlayer = true;
+            player.GetComponent<BasicMovement>().alertLevel.incDetectionCount();
+            player.GetComponent<BasicMovement>().alertLevel.increaseAlertPercentage(5);
             hearIndicator.GetComponent<SpriteRenderer>().color = Color.magenta;
-            AlertLevelText.GetComponent<AlertLevel>().increaseAlertPercentage(10);
-            AlertLevelText.GetComponent<AlertLevel>().isInSightOrVision = true;
         }
-        
     }
 
     private void HandleHearingStay(GameObject player)
     {
         if (!player.GetComponent<BasicMovement>().isSneaking)
+        {
+            if (!canHearPlayer)
+            {
+                canHearPlayer = true;
+                player.GetComponent<BasicMovement>().alertLevel.incDetectionCount();
+                player.GetComponent<BasicMovement>().alertLevel.increaseAlertPercentage(5);
+            }
             hearIndicator.GetComponent<SpriteRenderer>().color = Color.magenta;
+        }
         else
+        {
+            if (canHearPlayer)
+            {
+                canHearPlayer = false;
+                player.GetComponent<BasicMovement>().alertLevel.decDetectionCount();
+            }
             hearIndicator.GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 
-    private void HandleHearingExit()
+    private void HandleHearingExit(GameObject other)
     {
+        if (canHearPlayer)
+        {
+            canHearPlayer = false;
+            other.GetComponent<BasicMovement>().alertLevel.decDetectionCount();
+        }
         hearIndicator.GetComponent<SpriteRenderer>().color = Color.white;
-        AlertLevelText.GetComponent<AlertLevel>().isInSightOrVision = false;
     }
 
     public SpriteRenderer SpriteRenderer

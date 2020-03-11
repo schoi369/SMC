@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7678038946160738724}
   - component: {fileID: 507082605}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: AttackZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ SpriteRenderer:
   m_Sprite: {fileID: -9207324096461601957, guid: 5f8b5ab7b0594ba43961bc0bf6283abd,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.64, y: 0.64}

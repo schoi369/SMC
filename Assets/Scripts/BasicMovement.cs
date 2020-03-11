@@ -14,6 +14,8 @@ public class BasicMovement : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
+    public AlertLevel alertLevel;
+
     Vector2 movement;
 
     public float meleeRange = 0.65f;
@@ -24,7 +26,6 @@ public class BasicMovement : MonoBehaviour
     public bool isSneaking = false;
     private bool isAttacking = false;
     private float lastMeleeTime = 0.0f;
-
 
 
     public void Awake() {
