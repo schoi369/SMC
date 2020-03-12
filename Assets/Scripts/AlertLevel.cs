@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class AlertLevel : MonoBehaviour
 { 
-    public int currentAlertPercentage;
+    public static int currentAlertPercentage;
+    private static bool alertLevelInitialized = false;
+
     public int minAlertPercentage = 0;
     public int maxAlertPercentage = 100;
     public bool isDetected;    
@@ -18,8 +20,12 @@ public class AlertLevel : MonoBehaviour
     void Start()
     {
         detectionCounter = 0;
-        currentAlertPercentage = minAlertPercentage;
-
+        if (!alertLevelInitialized)
+        {
+            currentAlertPercentage = minAlertPercentage;
+            alertLevelInitialized = true;
+        }
+        updateText();
         InvokeRepeating("decreaseAlertPercentage", 1.0f, 1.0f);
     }
 

@@ -12,7 +12,8 @@ public class BasicMovement : MonoBehaviour
 
     public HealthBar healthBar;
     public int maxHealth = 100;
-    public int currentHealth;
+    public static int currentHealth;
+    private static bool healthInitialized = false;
 
     public AlertLevel alertLevel;
 
@@ -39,8 +40,13 @@ public class BasicMovement : MonoBehaviour
     private float slowSpeed = 1;
 
     void Start() {
-        currentHealth = maxHealth;
+        if (!healthInitialized)
+        {
+            currentHealth = maxHealth;
+            healthInitialized = true;
+        }
         healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(currentHealth);
     }
 
     void Update()

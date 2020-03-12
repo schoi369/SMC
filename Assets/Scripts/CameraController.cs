@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = FindObjectOfType<BasicMovement>().transform;
     }
 
     // Update is called once per frame
