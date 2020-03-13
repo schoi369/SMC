@@ -31,8 +31,12 @@ public class BasicMovement : MonoBehaviour
     private float lastMeleeTime = 0.0f;
     private float throwTime = 0.0f;
 
+    public Camera mainCam;
+    CameraShake cameraShake;
+
     public void Awake() {
         sr = GetComponent<SpriteRenderer>();
+        mainCam = Camera.main;
     }
 
     // Input
@@ -49,15 +53,11 @@ public class BasicMovement : MonoBehaviour
         }
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
+        cameraShake = mainCam.GetComponent<CameraShake>();
     }
 
     void Update()
     {
-
-        // TEST FOR PLAYER HEALTH
-        // if(Input.GetKeyDown(KeyCode.LeftAlt)) {
-        //     TakeDamage(10);
-        // }
 
         int horizontalMovement = 0;
         int verticalMovement = 0;
@@ -142,6 +142,7 @@ public class BasicMovement : MonoBehaviour
         if (currentHealth <= 0)
             SceneManager.LoadScene("GameFAIL");
         healthBar.SetHealth(currentHealth);
+        cameraShake.Shake(0.05f, 0.2f);
     }
 
 }

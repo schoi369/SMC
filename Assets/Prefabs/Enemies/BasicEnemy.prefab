@@ -672,6 +672,7 @@ MonoBehaviour:
   hearIndicator: {fileID: 4331616447954918067}
   attackZone: {fileID: 1284596554591426965}
   bodyMesh: {fileID: 4331616447793588112}
+  animator: {fileID: 4331616448495717836}
 --- !u!50 &4331616448495717824
 Rigidbody2D:
   serializedVersion: 4

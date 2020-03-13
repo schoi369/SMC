@@ -38,6 +38,8 @@ public class Enemy : MonoBehaviour
     private bool canHearPlayer;
     private SpriteRenderer sr;
 
+    public Animator animator;
+
     void Start()
     {
         playerTarget = null;
@@ -73,6 +75,7 @@ public class Enemy : MonoBehaviour
     {
         if (playerTarget != null && Time.time >= nextAttackTime)
         {
+            animator.SetTrigger("Attack");
             playerTarget.TakeDamage(10);
             nextAttackTime = Time.time + attackCooldown;
         }
