@@ -18,18 +18,16 @@ public class BasicMovement : MonoBehaviour
 
     public AlertLevel alertLevel;
 
-    Vector2 movement;
-
     public float meleeRange = 0.65f;
     public float meleeCooldown = 0.0f;
     public float throwCooldown = 0.0f;
 
-    public bool faceRight = true;
-    public bool isMoving = false;
     public bool isSneaking = false;
     private bool isAttacking = false;
     private float lastMeleeTime = 0.0f;
     private float throwTime = 0.0f;
+
+    [SerializeField] private Transform candy;
 
     public Camera mainCam;
     CameraShake cameraShake;
@@ -40,10 +38,8 @@ public class BasicMovement : MonoBehaviour
     }
 
     // Input
-    [SerializeField]
-    private float speed = 3;
-    [SerializeField]
-    private float slowSpeed = 1;
+    [SerializeField] private float speed = 3;
+    [SerializeField] private float slowSpeed = 1;
 
     void Start() {
         if (!healthInitialized)
@@ -56,8 +52,11 @@ public class BasicMovement : MonoBehaviour
         cameraShake = mainCam.GetComponent<CameraShake>();
     }
 
+    Vector2 lastPosition;
+
     void Update()
     {
+        Vector2 currentPosition = this.transform.position;
 
         int horizontalMovement = 0;
         int verticalMovement = 0;
@@ -74,13 +73,30 @@ public class BasicMovement : MonoBehaviour
             isSneaking = false;
             return;
         }
-        if (InputMap.Instance.GetInput(Action.THROW))
+        if (InputMap.Instance.GetInputDown(Action.THROW))
         {
+            // Candy Type 1: Initial Implementation
             if (Time.time >= throwTime + throwCooldown)
             {
                 throwTime = Time.time;
                 GameObject p = Instantiate(projectile, transform.position, transform.rotation);
             }
+
+            // // Candy Type 2: Different Version of Shooting Candy (with directions)
+            // Vector2 shootDirection = (currentPosition - lastPosition).normalized;
+            // if (shootDirection.normalized.Equals(new Vector2(0, 1)) || shootDirection.normalized.Equals(new Vector2(0, -1))) {
+            //     return;
+            // }
+
+            // if (shootDirection.normalized.Equals(Vector2.zero)) {
+            //     if (!sr.flipX) {
+            //         shootDirection = new Vector2(1, 0);
+            //     } else {
+            //         shootDirection = new Vector2(-1, 0);
+            //     }
+            // }
+            // Candy.Create(candy, this.transform.position, shootDirection);
+            
         }
         if (InputMap.Instance.GetInput(Action.RIGHT))
         {
@@ -115,6 +131,8 @@ public class BasicMovement : MonoBehaviour
             animator.SetFloat("Speed", velocity.sqrMagnitude);
             isSneaking = false;
         }
+
+        lastPosition = currentPosition;
     }
 
     public void MeleeAttack()

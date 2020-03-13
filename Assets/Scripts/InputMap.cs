@@ -29,11 +29,11 @@ public class InputMap : Singleton<InputMap>
     {
         act[action] = key;
     }
-    bool GetInputUp(Action action)
+    public bool GetInputUp(Action action)
     {
         return Input.GetKeyUp(act[action]);
     }
-    bool GetInputDown(Action action)
+    public bool GetInputDown(Action action)
     {
         return Input.GetKeyDown(act[action]);
     }
