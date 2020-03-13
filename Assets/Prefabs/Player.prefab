@@ -101,15 +101,19 @@ MonoBehaviour:
   rb: {fileID: 8865396616029813442}
   animator: {fileID: 8865396616029813445}
   sr: {fileID: 0}
-  healthBar: {fileID: 0}
+  projectile: {fileID: 6575624894134416909, guid: 747045a2fed42f441a21e1d21eab9622,
+    type: 3}
+  healthBar: {fileID: 5693862493415205114, guid: 214564118f1593c49bbd5e6cdb4442e2,
+    type: 3}
   maxHealth: 100
-  currentHealth: 0
   alertLevel: {fileID: 1430580945}
   meleeRange: 0.45
   meleeCooldown: 0.5
+  throwCooldown: 0
   faceRight: 1
   isMoving: 0
   isSneaking: 0
+  mainCam: {fileID: 0}
   speed: 3
   slowSpeed: 1
 --- !u!95 &8865396616029813445
@@ -190,7 +194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bc7b3f757d97a40a76cf02b04c0cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentAlertPercentage: 0
   minAlertPercentage: 0
   maxAlertPercentage: 100
   isDetected: 0
