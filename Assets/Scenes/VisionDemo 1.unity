@@ -2083,6 +2083,12 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1448450651}
+    - target: {fileID: 8865396616029813444, guid: d99a7d4090c4c114c96ee07b3e28b1c4,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 6575624894134416909, guid: 747045a2fed42f441a21e1d21eab9622,
+        type: 3}
     - target: {fileID: 1430580945, guid: d99a7d4090c4c114c96ee07b3e28b1c4, type: 3}
       propertyPath: alertLevelText
       value: 
