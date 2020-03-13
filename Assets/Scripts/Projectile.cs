@@ -36,3 +36,4 @@ public class Projectile : MonoBehaviour
         }
         Debug.Log("I");
     }
+}
