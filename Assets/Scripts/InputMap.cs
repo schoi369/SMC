@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum Action
 {
-    UP, DOWN, LEFT, RIGHT, ATTACK, SLOW, LEAP
+    UP, DOWN, LEFT, RIGHT, ATTACK, SLOW, LEAP, THROW
 }
 public class InputMap : Singleton<InputMap>
 {
@@ -19,6 +19,7 @@ public class InputMap : Singleton<InputMap>
         act.Add(Action.ATTACK, KeyCode.Z);
         act.Add(Action.SLOW, KeyCode.LeftControl);
         act.Add(Action.LEAP, KeyCode.LeftShift);
+        act.Add(Action.THROW, KeyCode.X);
     }
     public bool GetInput(Action action)
     {
