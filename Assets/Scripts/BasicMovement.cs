@@ -9,6 +9,7 @@ public class BasicMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     public SpriteRenderer sr;
+    public GameObject projectile;
 
     public HealthBar healthBar;
     public int maxHealth = 100;
@@ -21,13 +22,14 @@ public class BasicMovement : MonoBehaviour
 
     public float meleeRange = 0.65f;
     public float meleeCooldown = 0.0f;
+    public float throwCooldown = 0.0f;
 
     public bool faceRight = true;
     public bool isMoving = false;
     public bool isSneaking = false;
     private bool isAttacking = false;
     private float lastMeleeTime = 0.0f;
-
+    private float throwTime = 0.0f;
 
     public void Awake() {
         sr = GetComponent<SpriteRenderer>();
@@ -71,6 +73,14 @@ public class BasicMovement : MonoBehaviour
             animator.SetFloat("Speed", 0);
             isSneaking = false;
             return;
+        }
+        if (InputMap.Instance.GetInput(Action.THROW))
+        {
+            if (Time.time >= throwTime + throwCooldown)
+            {
+                throwTime = Time.time;
+                GameObject p = Instantiate(projectile, transform.position, transform.rotation);
+            }
         }
         if (InputMap.Instance.GetInput(Action.RIGHT))
         {
