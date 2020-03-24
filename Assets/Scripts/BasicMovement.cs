@@ -9,7 +9,7 @@ public class BasicMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     public SpriteRenderer sr;
-    public GameObject projectile;
+    // public GameObject projectile;
 
     public HealthBar healthBar;
     public int maxHealth = 100;
@@ -76,26 +76,26 @@ public class BasicMovement : MonoBehaviour
         if (InputMap.Instance.GetInputDown(Action.THROW))
         {
             // Candy Type 1: Initial Implementation
-            if (Time.time >= throwTime + throwCooldown)
-            {
-                throwTime = Time.time;
-                GameObject p = Instantiate(projectile, transform.position, transform.rotation);
+            // if (Time.time >= throwTime + throwCooldown)
+            // {
+            //     throwTime = Time.time;
+            //     GameObject p = Instantiate(projectile, transform.position, transform.rotation);
+            // }
+
+            // Candy Type 2: Updated Version of Shooting Candy (with directions)
+            Vector2 shootDirection = (currentPosition - lastPosition).normalized;
+            if (shootDirection.normalized.Equals(new Vector2(0, 1)) || shootDirection.normalized.Equals(new Vector2(0, -1))) {
+                return;
             }
 
-            // // Candy Type 2: Different Version of Shooting Candy (with directions)
-            // Vector2 shootDirection = (currentPosition - lastPosition).normalized;
-            // if (shootDirection.normalized.Equals(new Vector2(0, 1)) || shootDirection.normalized.Equals(new Vector2(0, -1))) {
-            //     return;
-            // }
-
-            // if (shootDirection.normalized.Equals(Vector2.zero)) {
-            //     if (!sr.flipX) {
-            //         shootDirection = new Vector2(1, 0);
-            //     } else {
-            //         shootDirection = new Vector2(-1, 0);
-            //     }
-            // }
-            // Candy.Create(candy, this.transform.position, shootDirection);
+            if (shootDirection.normalized.Equals(Vector2.zero)) {
+                if (!sr.flipX) {
+                    shootDirection = new Vector2(1, 0);
+                } else {
+                    shootDirection = new Vector2(-1, 0);
+                }
+            }
+            Candy.Create(candy, this.transform.position, shootDirection);
             
         }
         if (InputMap.Instance.GetInput(Action.RIGHT))

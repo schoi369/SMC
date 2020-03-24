@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4495053085905583099}
   - component: {fileID: 454327026144992817}
   m_Layer: 0
-  m_Name: CandyCarrierObject
+  m_Name: candy_type2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1293694141642201532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 311e7bb0c7c355a48a56623d6860da97, type: 3}
+  m_Script: {fileID: 11500000, guid: 75aad88faee9cee4197d3657b71c923a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!70 &4495053085905583099
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1293694141945115273}
   - component: {fileID: 1293694141945115272}
-  - component: {fileID: 1679695886654560086}
+  - component: {fileID: 2601763681742408725}
   m_Layer: 0
   m_Name: candy
   m_TagString: Untagged
@@ -164,7 +164,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1679695886654560086
+--- !u!95 &2601763681742408725
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ Animator:
   m_GameObject: {fileID: 1293694141945115274}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d4074dc6b5f9193418d9fff8d6a600c0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 51a1d011838782c478a6c8244c5a15ce, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
