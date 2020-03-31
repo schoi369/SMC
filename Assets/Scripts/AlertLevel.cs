@@ -10,7 +10,6 @@ public class AlertLevel : MonoBehaviour
 
     public int minAlertPercentage = 0;
     public int maxAlertPercentage = 100;
-    public bool isDetected;    
 
     public Text alertLevelText;
 

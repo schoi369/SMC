@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
     public GameObject hearIndicator; //For demo purposes
     public GameObject attackZone;
 
+    public GameObject spottedSign; // Appears when the player is spotted
+
     public MeshRenderer bodyMesh;
 
     private BasicMovement playerTarget;
@@ -38,6 +40,9 @@ public class Enemy : MonoBehaviour
     private bool canHearPlayer;
     private SpriteRenderer sr;
 
+    public bool playerSpotted;
+    public float spottedIndex;
+
     public Animator animator;
 
     void Start()
@@ -46,6 +51,9 @@ public class Enemy : MonoBehaviour
         nextAttackTime = 0.0f;
         canSeePlayer = false;
         canHearPlayer = false;
+
+        playerSpotted = false;
+        spottedIndex = 0;
 
         EnemyChildDelegate losChild = lineOfSight.AddComponent<EnemyChildDelegate>();
         losChild.Parent = this;
@@ -79,6 +87,30 @@ public class Enemy : MonoBehaviour
             playerTarget.TakeDamage(10);
             nextAttackTime = Time.time + attackCooldown;
         }
+        manageSpotted();
+    }
+
+    void manageSpotted() {
+        if (canSeePlayer || canHearPlayer) {
+            spottedIndex++;
+        } else {
+            spottedIndex--;
+        }
+        if (spottedIndex <= 0) {
+            spottedIndex = 0;
+        }
+        if (spottedIndex >= 100) {
+            spottedIndex = 100;
+        }
+        if (spottedIndex > 40) {
+            playerSpotted = true;
+            spottedSign.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        if (spottedIndex < 5) {
+            playerSpotted = false;
+            spottedSign.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        // Debug.Log(playerSpotted);
     }
 
     public void Damage(int amount)
