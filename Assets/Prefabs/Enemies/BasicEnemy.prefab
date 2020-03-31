@@ -678,6 +678,7 @@ MonoBehaviour:
   playerSpotted: 0
   spottedIndex: 0
   animator: {fileID: 4331616448495717836}
+  player: {fileID: 0}
 --- !u!50 &4331616448495717824
 Rigidbody2D:
   serializedVersion: 4

@@ -38,15 +38,20 @@ public class Enemy : MonoBehaviour
     private PolygonCollider2D losCollider;
     private bool canSeePlayer;
     private bool canHearPlayer;
+    
     private SpriteRenderer sr;
-
     public bool playerSpotted;
+
     public float spottedIndex;
 
     public Animator animator;
 
+    public GameObject player;
+
     void Start()
     {
+        player = GameObject.Find("Player-chan");
+
         playerTarget = null;
         nextAttackTime = 0.0f;
         canSeePlayer = false;
@@ -105,12 +110,21 @@ public class Enemy : MonoBehaviour
         if (spottedIndex > 40) {
             playerSpotted = true;
             spottedSign.GetComponent<SpriteRenderer>().enabled = true;
+            if (!sr.flipX && player.transform.position.x <= this.transform.position.x) {
+                sr.flipX = true;
+                lineOfSight.transform.Rotate(0f, 0f, 180f);
+                attackZone.transform.Rotate(0f, 0f, 180f);
+            } else if (sr.flipX && player.transform.position.x >= this.transform.position.x) {
+                sr.flipX = false;
+                lineOfSight.transform.Rotate(0f, 0f, 180f);
+                attackZone.transform.Rotate(0f, 0f, 180f);
+            }
+            
         }
         if (spottedIndex < 5) {
             playerSpotted = false;
             spottedSign.GetComponent<SpriteRenderer>().enabled = false;
         }
-        // Debug.Log(playerSpotted);
     }
 
     public void Damage(int amount)
