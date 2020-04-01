@@ -575,6 +575,7 @@ GameObject:
   - component: {fileID: 4331616448495717824}
   - component: {fileID: 4331616448495717837}
   - component: {fileID: 4331616448495717836}
+  - component: {fileID: 7019885569521043975}
   m_Layer: 8
   m_Name: BasicEnemy
   m_TagString: Enemy
@@ -745,6 +746,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7019885569521043975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331616448495717831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 0}
+  autoReset: 1
+  tickOn: 0
+  sourceInfos:
+  - isFoldout: 1
+    breakPoints: 
+    breakPointStatuses: 
+    collapsedLines: 
+    btScript: 
 --- !u!1 &4331616448628608896
 GameObject:
   m_ObjectHideFlags: 0

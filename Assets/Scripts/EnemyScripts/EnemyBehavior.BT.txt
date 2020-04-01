@@ -1,0 +1,17 @@
+tree("Root")
+	fallback
+		tree("Idle")
+		//tree("AlertLow")
+		//tree("AlertMed")
+		//tree("AlertHigh")
+
+tree("Idle")
+	while Alert_Level_None
+		repeat
+			sequence
+				SetDestination_Waypoint
+				FlipToward_Target
+				MoveTo_Destination
+				Wait(0.3)
+				NextWaypoint
+		
