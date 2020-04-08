@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Panda;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,6 +29,8 @@ public class Enemy : MonoBehaviour
     public GameObject hearIndicator; //For demo purposes
     public GameObject attackZone;
 
+    public WaypointPath waypointPath;
+
     public GameObject spottedSign; // Appears when the player is spotted
 
     public MeshRenderer bodyMesh;
@@ -38,7 +41,9 @@ public class Enemy : MonoBehaviour
     private PolygonCollider2D losCollider;
     private bool canSeePlayer;
     private bool canHearPlayer;
-    
+    private int waypointIndex;
+    private Vector3 waypointTarget;
+
     private SpriteRenderer sr;
     public bool playerSpotted;
 
@@ -56,6 +61,8 @@ public class Enemy : MonoBehaviour
         nextAttackTime = 0.0f;
         canSeePlayer = false;
         canHearPlayer = false;
+        waypointIndex = 0;
+        waypointTarget = Vector3.zero;
 
         playerSpotted = false;
         spottedIndex = 0;
@@ -363,5 +370,101 @@ public class Enemy : MonoBehaviour
     public SpriteRenderer SpriteRenderer
     {
         get { return sr; }
+    }
+
+    [Task]
+    public bool Alert_Level_None()
+    {
+        return AlertLevel.currentAlertPercentage == 0;
+    }
+
+    [Task]
+    bool SetDestination_Waypoint()
+    {
+        bool isSet = false;
+        if (waypointPath != null)
+        {
+            var i = waypointArrayIndex;
+            waypointTarget = waypointPath.waypoints[i].position;
+            waypointTarget.z = transform.position.z;
+            isSet = true;
+        }
+        return isSet;
+    }
+
+    [Task]
+    bool FlipToward_Target()
+    {
+        bool isSet = false;
+        if (waypointTarget != null)
+        {
+            if (transform.position.x < waypointTarget.x)
+                sr.flipX = false;
+            else
+                sr.flipX = true;
+            isSet = true;
+        }
+        return isSet;
+    }
+
+    float currPos = 0f;
+
+    [Task]
+    public void MoveTo_Destination()
+    {
+        if (Task.current.isStarting)
+            currPos = 0f;
+        //transform.Translate(waypointTarget - transform.position * Time.deltaTime * 2.0f);
+        currPos += 0.1f * Time.deltaTime;
+        transform.position = Vector3.Lerp(transform.position, waypointTarget, currPos);
+        WaitArrival();
+    }
+
+    [Task]
+    public void WaitArrival()
+    {
+        var task = Task.current;
+        float d = Vector3.Distance(transform.position, waypointTarget);
+        if (!task.isStarting && d <= 0.2f)
+        {
+            task.Succeed();
+        }
+
+        if (Task.isInspected)
+            task.debugInfo = string.Format("d-{0:0.00}", d);
+    }
+
+    [Task]
+    bool NextWaypoint()
+    {
+        if (waypointPath != null)
+        {
+            waypointIndex++;
+            if (Task.isInspected)
+                Task.current.debugInfo = string.Format("i={0}", waypointArrayIndex);
+        }
+        return true;
+    }
+
+    int waypointArrayIndex
+    {
+        get
+        {
+            int i = 0;
+            if (waypointPath.loop)
+            {
+                i = waypointIndex % waypointPath.waypoints.Length;
+            }
+            else
+            {
+                int n = waypointPath.waypoints.Length;
+                i = waypointIndex % (n * 2);
+
+                if (i > n - 1)
+                    i = (n - 1) - (i % n);
+            }
+
+            return i;
+        }
     }
 }
