@@ -1,17 +1,53 @@
 tree("Root")
-	fallback
-		tree("Idle")
-		//tree("AlertLow")
-		//tree("AlertMed")
-		//tree("AlertHigh")
+	while
+		sequence
+			not IsAttacking
+
+		fallback
+			tree("AlertLow")
+			tree("AlertMed")
+			tree("AlertHigh")
+			tree("Idle")
 
 tree("Idle")
-	while Alert_Level_None
+	while not PlayerSpotted
 		repeat
 			sequence
+				//not PlayerSpotted
 				SetDestination_Waypoint
 				FlipToward_Target
 				MoveTo_Destination
 				Wait(0.3)
 				NextWaypoint
 		
+tree("AlertLow")
+	sequence
+		Alert_Level_Low
+		tree("PlayerInVision")
+		tree("Idle")
+
+tree("AlertMed")
+	sequence
+		Alert_Level_Medium
+		tree("PlayerInVision")
+		tree("Idle")
+
+tree("AlertHigh")
+	sequence
+		Alert_Level_High
+
+		while not PlayerInRange
+			ChasePlayer
+
+tree("PlayerInVision")
+	fallback
+
+		while PlayerSpotted
+			repeat
+				sequence
+					not PlayerInRange
+					ChasePlayer
+		
+		//Player is now in range to attack
+		sequence
+			AttackPlayer

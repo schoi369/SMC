@@ -21,7 +21,9 @@ public class Enemy : MonoBehaviour
      * Changing the radius of the Circle Collider 2D component will change its area.
      */
 
-    public float attackCooldown = 3.0f;
+    public float attackCooldown = 1.5f;
+    public float idleSpeed = 1.0f;
+    public float chaseSpeed = 1.0f;
 
     public GameObject lineOfSight;
     public GameObject losIndicator; //For demo purposes
@@ -43,6 +45,10 @@ public class Enemy : MonoBehaviour
     private bool canHearPlayer;
     private int waypointIndex;
     private Vector3 waypointTarget;
+    private Rigidbody2D rb;
+    private bool hasAttacked;
+    private bool isRunning;
+    private bool isWalking;
 
     private SpriteRenderer sr;
     public bool playerSpotted;
@@ -63,6 +69,7 @@ public class Enemy : MonoBehaviour
         canHearPlayer = false;
         waypointIndex = 0;
         waypointTarget = Vector3.zero;
+        hasAttacked = false;
 
         playerSpotted = false;
         spottedIndex = 0;
@@ -84,6 +91,8 @@ public class Enemy : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         losCollider = lineOfSight.GetComponent<PolygonCollider2D>();
 
+        rb = GetComponent<Rigidbody2D>();
+
         if (!sr.flipX)
         {
             lineOfSight.transform.Rotate(0f, 0f, 180f);
@@ -93,20 +102,56 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (playerTarget != null && Time.time >= nextAttackTime)
+        if (Time.time >= nextAttackTime)
         {
-            animator.SetTrigger("Attack");
-            playerTarget.TakeDamage(10);
-            nextAttackTime = Time.time + attackCooldown;
+            if (!hasAttacked)
+            {
+                if (playerTarget != null)
+                {
+                    animator.SetTrigger("Attack");
+                    nextAttackTime = Time.time + attackCooldown;
+                    hasAttacked = true;
+                }
+            }
+            else
+            {
+                hasAttacked = false;
+                animator.SetTrigger("AttackCooldownFinish");
+            }
         }
+        
         manageSpotted();
+    }
+
+    private void LateUpdate()
+    {
+        if (!isWalking && !isRunning)
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isRunning", false);
+        }
+        else
+        {
+            if (isWalking)
+            {
+                isWalking = false;
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isRunning", false);
+            }
+            if (isRunning)
+            {
+                isRunning = false;
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isRunning", true);
+            }
+        }
     }
 
     void manageSpotted() {
         if (canSeePlayer || canHearPlayer) {
-            spottedIndex++;
+            spottedIndex += 2;
         } else {
-            spottedIndex--;
+            spottedIndex -= 2;
         }
         if (spottedIndex <= 0) {
             spottedIndex = 0;
@@ -117,16 +162,19 @@ public class Enemy : MonoBehaviour
         if (spottedIndex > 40) {
             playerSpotted = true;
             spottedSign.GetComponent<SpriteRenderer>().enabled = true;
+            /*
             if (!sr.flipX && player.transform.position.x <= this.transform.position.x) {
-                sr.flipX = true;
-                lineOfSight.transform.Rotate(0f, 0f, 180f);
-                attackZone.transform.Rotate(0f, 0f, 180f);
+                //sr.flipX = true;
+                //lineOfSight.transform.Rotate(0f, 0f, 180f);
+                //attackZone.transform.Rotate(0f, 0f, 180f);
+                FaceLeft();
             } else if (sr.flipX && player.transform.position.x >= this.transform.position.x) {
-                sr.flipX = false;
-                lineOfSight.transform.Rotate(0f, 0f, 180f);
-                attackZone.transform.Rotate(0f, 0f, 180f);
+                //sr.flipX = false;
+                //lineOfSight.transform.Rotate(0f, 0f, 180f);
+                //attackZone.transform.Rotate(0f, 0f, 180f);
+                FaceRight();
             }
-            
+            */
         }
         if (spottedIndex < 5) {
             playerSpotted = false;
@@ -146,6 +194,33 @@ public class Enemy : MonoBehaviour
             this.enabled = false;
             isDead = true;
         }
+    }
+
+    public void JumpAttack()
+    {
+        if (playerTarget != null)
+        {
+            playerTarget.TakeDamage(10);
+        }
+    }
+
+    public void CooldownFinished()
+    {
+        //hasAttacked = false;
+    }
+
+    private void FaceLeft()
+    {
+        sr.flipX = true;
+        lineOfSight.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        attackZone.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+    }
+
+    private void FaceRight()
+    {
+        sr.flipX = false;
+        lineOfSight.transform.rotation = Quaternion.Euler(0f, 0f, 180f);
+        attackZone.transform.rotation = Quaternion.Euler(0f, 0f, 180f);
     }
 
     public void OnChildTrigger(string childTag, Collider2D collision, TriggerType triggerType)
@@ -379,6 +454,42 @@ public class Enemy : MonoBehaviour
     }
 
     [Task]
+    public bool Alert_Level_Low()
+    {
+        return AlertLevel.currentAlertPercentage < 31 && AlertLevel.currentAlertPercentage > 0;
+    }
+
+    [Task]
+    public bool Alert_Level_Medium()
+    {
+        return AlertLevel.currentAlertPercentage > 30 && AlertLevel.currentAlertPercentage < 71;
+    }
+
+    [Task]
+    public bool Alert_Level_High()
+    {
+        return AlertLevel.currentAlertPercentage > 70;
+    }
+
+    [Task]
+    public bool PlayerSpotted()
+    {
+        return playerSpotted;
+    }
+
+    [Task]
+    public bool IsAttacking()
+    {
+        return hasAttacked;
+    }
+
+    [Task]
+    public bool CanSeePlayer()
+    {
+        return canSeePlayer;
+    }
+
+    [Task]
     bool SetDestination_Waypoint()
     {
         bool isSet = false;
@@ -399,9 +510,11 @@ public class Enemy : MonoBehaviour
         if (waypointTarget != null)
         {
             if (transform.position.x < waypointTarget.x)
-                sr.flipX = false;
+                //sr.flipX = false;
+                FaceRight();
             else
-                sr.flipX = true;
+                //sr.flipX = true;
+                FaceLeft();
             isSet = true;
         }
         return isSet;
@@ -415,8 +528,13 @@ public class Enemy : MonoBehaviour
         if (Task.current.isStarting)
             currPos = 0f;
         //transform.Translate(waypointTarget - transform.position * Time.deltaTime * 2.0f);
-        currPos += 0.1f * Time.deltaTime;
-        transform.position = Vector3.Lerp(transform.position, waypointTarget, currPos);
+        //currPos += 0.1f * Time.deltaTime;
+        //transform.position = Vector3.Lerp(transform.position, waypointTarget, currPos);
+        Vector3 dir = Vector3.Normalize(waypointTarget - transform.position);
+        //transform.Translate(dir * Time.deltaTime);
+        rb.MovePosition(transform.position + dir * Time.deltaTime * idleSpeed);
+        isRunning = false;
+        isWalking = true;
         WaitArrival();
     }
 
@@ -444,6 +562,42 @@ public class Enemy : MonoBehaviour
                 Task.current.debugInfo = string.Format("i={0}", waypointArrayIndex);
         }
         return true;
+    }
+
+    [Task]
+    bool PlayerInRange()
+    {
+        bool inRange = Vector2.Distance(transform.position, player.transform.position) <= 0.25f;
+        return inRange;
+    }
+
+    [Task]
+    bool ChasePlayer()
+    {
+        if (player != null)
+        {
+            if (transform.position.x < player.transform.position.x)
+                FaceRight();
+            else
+                FaceLeft();
+            Vector3 dir = Vector3.Normalize(player.transform.position - transform.position);
+            //transform.Translate(dir * Time.deltaTime);
+            rb.MovePosition(transform.position + dir * Time.deltaTime * chaseSpeed);
+            isRunning = true;
+            isWalking = false;
+            return true;
+        }
+        return false;
+    }
+
+    [Task]
+    bool AttackPlayer()
+    {
+        if (player != null)
+        {
+            return true;
+        }
+        return false;
     }
 
     int waypointArrayIndex
