@@ -121,6 +121,18 @@ public class Enemy : MonoBehaviour
         }
         
         manageSpotted();
+        manageRange();
+    }
+
+    // Change range of sight and vision based on alert level
+    void manageRange() {
+        if (Alert_Level_None()) {
+            lineOfSight.transform.localScale = new Vector3 (1.6f, 1, 1);
+        } else if (Alert_Level_Low()) {
+            lineOfSight.transform.localScale = new Vector3 (1.8f, 1, 1);
+        } else if (Alert_Level_Medium()) {
+            lineOfSight.transform.localScale = new Vector3 (2f, 1, 1);
+        }
     }
 
     private void LateUpdate()
@@ -188,10 +200,11 @@ public class Enemy : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
-            bodyMesh.material.color = Color.red;
-            losIndicator.SetActive(false);
-            hearIndicator.SetActive(false);
-            this.enabled = false;
+            Destroy(this.gameObject);
+            // bodyMesh.material.color = Color.red;
+            // losIndicator.SetActive(false);
+            // hearIndicator.SetActive(false);
+            // this.enabled = false;
             isDead = true;
         }
     }
