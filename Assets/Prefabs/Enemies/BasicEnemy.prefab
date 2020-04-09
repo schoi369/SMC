@@ -44,7 +44,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.47058624, y: -0.004953593}
+  m_Offset: {x: -0.25792262, y: -0.004953593}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -55,7 +55,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.71269476, y: 0.61362404}
+  m_Size: {x: 0.28736752, y: 0.61362404}
   m_EdgeRadius: 0
 --- !u!1 &4331616447370729023
 GameObject:
@@ -645,7 +645,7 @@ SpriteRenderer:
   m_Sprite: {fileID: -9207324096461601957, guid: 5f8b5ab7b0594ba43961bc0bf6283abd,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.64, y: 0.64}
@@ -668,12 +668,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   healthBar: {fileID: 4331616448628608897}
-  attackCooldown: 3
+  attackCooldown: 1.5
+  idleSpeed: 1
+  chaseSpeed: 1
   lineOfSight: {fileID: 4331616449282350554}
   losIndicator: {fileID: 4331616448421444100}
   hearingRadius: {fileID: 4331616449363313223}
   hearIndicator: {fileID: 4331616447954918067}
   attackZone: {fileID: 1284596554591426965}
+  waypointPath: {fileID: 0}
   spottedSign: {fileID: 7881783993872953222}
   bodyMesh: {fileID: 4331616447793588112}
   playerSpotted: 0
@@ -688,19 +691,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4331616448495717831}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9ad1e96fc960b4e4cb73c6cb2aa11c08, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4331616448495717837
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -759,7 +762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scripts:
-  - {fileID: 0}
+  - {fileID: 4900000, guid: 3bc0ccc574a24fa4ba42a1e8fb21ab02, type: 3}
   autoReset: 1
   tickOn: 0
   sourceInfos:
