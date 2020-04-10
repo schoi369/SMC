@@ -182,8 +182,6 @@ MonoBehaviour:
   rb: {fileID: 8865396616029813442}
   animator: {fileID: 8865396616029813445}
   sr: {fileID: 0}
-  projectile: {fileID: 6575624894134416909, guid: 747045a2fed42f441a21e1d21eab9622,
-    type: 3}
   healthBar: {fileID: 5693862493415205114, guid: 214564118f1593c49bbd5e6cdb4442e2,
     type: 3}
   maxHealth: 100
@@ -192,9 +190,12 @@ MonoBehaviour:
   meleeCooldown: 0.5
   throwCooldown: 0
   isSneaking: 0
+  isMoving: 0
   candy: {fileID: 1293694141642201530, guid: 33c7f697f83ecad4588aa59438358f5e, type: 3}
   mainCam: {fileID: 0}
-  speed: 3
+  soundDistractionPrefab: {fileID: 3324358609583187903, guid: 829ea0eee5974a242923f59f858a9f49,
+    type: 3}
+  speed: 2
   slowSpeed: 1
 --- !u!95 &8865396616029813445
 Animator:
@@ -276,7 +277,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minAlertPercentage: 0
   maxAlertPercentage: 100
-  isDetected: 0
   alertLevelText: {fileID: 0}
 --- !u!1 &8975141123063503010
 GameObject:

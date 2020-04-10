@@ -59,7 +59,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7f56817cf598de44e817baad2bf0aa56, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7ad30c94f659e9c47be9af0bb8d5b0ba, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -157,4 +157,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c87f2760f3c1ea4f8223951295c356f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: {fileID: 3324358609583187902}

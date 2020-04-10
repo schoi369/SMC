@@ -12,25 +12,25 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Menu.unity
     guid: 6f586365823a948aaae9833ae7c3d2b2
   - enabled: 0
-    path: Assets/Scenes/BasicMovementAndAnim.unity
+    path: Assets/Scenes/Testing Purpose/BasicMovementAndAnim.unity
     guid: ad06c3a908d28304099ab5374fe90a27
   - enabled: 0
-    path: Assets/Scenes/GameFAIL.unity
+    path: Assets/Scenes/Testing Purpose/GameFAIL.unity
     guid: 9800fef9fe6db46ea8c5e0e123e723a5
   - enabled: 0
-    path: Assets/Scenes/GoodEnd.unity
+    path: Assets/Scenes/Testing Purpose/GoodEnd.unity
     guid: 82f3b6551cf4d4469a36edd62c1deca9
   - enabled: 0
-    path: Assets/Scenes/Demo.unity
+    path: Assets/Scenes/Testing Purpose/Demo.unity
     guid: b9c66c9f329c73a40a8087b1c3fad2e6
   - enabled: 0
-    path: Assets/Scenes/TransitionTest1.unity
+    path: Assets/Scenes/Testing Purpose/TransitionTest1.unity
     guid: c664fc142f2bfe84ab7ee1fe7c82f54c
   - enabled: 0
-    path: Assets/Scenes/TransitionTest2.unity
+    path: Assets/Scenes/Testing Purpose/TransitionTest2.unity
     guid: a33ba11d89a36a948b1731d7ef6bdc27
   - enabled: 0
-    path: Assets/Scenes/TransitionTest3.unity
+    path: Assets/Scenes/Testing Purpose/TransitionTest3.unity
     guid: d1899edbe3c341843b27492e7bb1aa1b
   - enabled: 1
     path: Assets/Scenes/_Credits.unity

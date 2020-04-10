@@ -21,9 +21,9 @@ public class Enemy : MonoBehaviour
      * Changing the radius of the Circle Collider 2D component will change its area.
      */
 
-    public float attackCooldown = 1.5f;
+    public float attackCooldown = 1.0f;
     public float idleSpeed = 1.0f;
-    public float chaseSpeed = 1.0f;
+    public float chaseSpeed = 3.0f;
 
     public GameObject lineOfSight;
     public GameObject losIndicator; //For demo purposes
@@ -143,11 +143,11 @@ public class Enemy : MonoBehaviour
     // Change range of sight and vision based on alert level
     void manageRange() {
         if (Alert_Level_None()) {
-            lineOfSight.transform.localScale = new Vector3 (1.6f, 1, 1);
+            lineOfSight.transform.localScale = new Vector3 (1.4f, 1, 1);
         } else if (Alert_Level_Low()) {
-            lineOfSight.transform.localScale = new Vector3 (1.8f, 1, 1);
+            lineOfSight.transform.localScale = new Vector3 (1.6f, 1, 1);
         } else if (Alert_Level_Medium()) {
-            lineOfSight.transform.localScale = new Vector3 (2f, 1, 1);
+            lineOfSight.transform.localScale = new Vector3 (1.8f, 1, 1);
         }
     }
 
@@ -438,7 +438,7 @@ public class Enemy : MonoBehaviour
 
     private void HandleHearingEnter(GameObject player)
     {
-        if (!player.GetComponent<BasicMovement>().isSneaking) {
+        if (!player.GetComponent<BasicMovement>().isSneaking && player.GetComponent<BasicMovement>().isMoving) {
             canHearPlayer = true;
             player.GetComponent<BasicMovement>().alertLevel.incDetectionCount();
             player.GetComponent<BasicMovement>().alertLevel.increaseAlertPercentage(5);
@@ -448,7 +448,7 @@ public class Enemy : MonoBehaviour
 
     private void HandleHearingStay(GameObject player)
     {
-        if (!player.GetComponent<BasicMovement>().isSneaking)
+        if (!player.GetComponent<BasicMovement>().isSneaking && player.GetComponent<BasicMovement>().isMoving)
         {
             if (!canHearPlayer)
             {
@@ -529,14 +529,14 @@ public class Enemy : MonoBehaviour
     [Task]
     public bool HeardNoise()
     {
-        Debug.Log("Heard noise is " + heardNoise);
+        // Debug.Log("Heard noise is " + heardNoise);
         return heardNoise;
     }
 
     [Task]
     public void MoveTo_Noise()
     {
-        if (Vector2.Distance(transform.position, noiseLocation) <= 0.5f)
+        if (Vector2.Distance(transform.position, noiseLocation) <= 0.3f)
         {
             Task.current.Succeed();
         }
@@ -625,7 +625,7 @@ public class Enemy : MonoBehaviour
     {
         var task = Task.current;
         float d = Vector2.Distance(transform.position, position);
-        if (!task.isStarting && d <= 0.2f)
+        if (!task.isStarting && d <= 0.4f)
         {
             task.Succeed();
         }

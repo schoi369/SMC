@@ -18,7 +18,7 @@ public class BasicMovement : MonoBehaviour
 
     public AlertLevel alertLevel;
 
-    public float meleeRange = 0.65f;
+    public float meleeRange = 0.85f;
     public float meleeCooldown = 0.0f;
     public float throwCooldown = 0.0f;
 
@@ -26,6 +26,8 @@ public class BasicMovement : MonoBehaviour
     private bool isAttacking = false;
     private float lastMeleeTime = 0.0f;
     private float throwTime = 0.0f;
+
+    public bool isMoving = false;
 
     [SerializeField] private Transform candy;
 
@@ -40,8 +42,8 @@ public class BasicMovement : MonoBehaviour
     }
 
     // Input
-    [SerializeField] private float speed = 3;
-    [SerializeField] private float slowSpeed = 1;
+    [SerializeField] private float speed = 2f;
+    [SerializeField] private float slowSpeed = 1f;
 
     void Start() {
         if (!healthInitialized)
@@ -60,6 +62,12 @@ public class BasicMovement : MonoBehaviour
     {
         Vector2 currentPosition = this.transform.position;
 
+        if (rb.velocity.Equals(Vector2.zero)) {
+            isMoving = false;
+        } else {
+            isMoving = true;
+        }
+
         int horizontalMovement = 0;
         int verticalMovement = 0;
 
@@ -77,6 +85,7 @@ public class BasicMovement : MonoBehaviour
         }
         if (InputMap.Instance.GetInputDown(Action.THROW))
         {
+
             // Candy Type 1: Initial Implementation
             // if (Time.time >= throwTime + throwCooldown)
             // {
@@ -135,7 +144,7 @@ public class BasicMovement : MonoBehaviour
         }
         if (InputMap.Instance.GetInputDown(Action.STOMP))
         {
-            Instantiate(soundDistractionPrefab, transform);
+            GameObject sdClone = Instantiate(soundDistractionPrefab, transform);
         }
 
         lastPosition = currentPosition;
@@ -155,6 +164,8 @@ public class BasicMovement : MonoBehaviour
                 hitEnemy.Damage(3);
             else
                 hitEnemy.Damage(1);
+            
+            TakeDamage(10);
         }
 
         lastMeleeTime = Time.time;
@@ -168,5 +179,4 @@ public class BasicMovement : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         cameraShake.Shake(0.05f, 0.2f);
     }
-
 }

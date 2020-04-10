@@ -16,7 +16,7 @@ tree("Idle")
 				sequence
 					FlipToward_Noise
 					MoveTo_Noise
-					Wait(2.0)
+					Wait(1.5)
 					Forget_Noise
 
 		while not PlayerSpotted
@@ -27,7 +27,7 @@ tree("Idle")
 					SetDestination_Waypoint
 					FlipToward_Target
 					MoveTo_Destination
-					Wait(0.3)
+					Wait(1.5)
 					NextWaypoint
 		
 tree("AlertLow")
