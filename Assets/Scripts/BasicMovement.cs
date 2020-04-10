@@ -83,32 +83,32 @@ public class BasicMovement : MonoBehaviour
             isSneaking = false;
             return;
         }
-        if (InputMap.Instance.GetInputDown(Action.THROW))
-        {
+        // if (InputMap.Instance.GetInputDown(Action.THROW))
+        // {
 
-            // Candy Type 1: Initial Implementation
-            // if (Time.time >= throwTime + throwCooldown)
-            // {
-            //     throwTime = Time.time;
-            //     GameObject p = Instantiate(projectile, transform.position, transform.rotation);
-            // }
+        //     // Candy Type 1: Initial Implementation
+        //     // if (Time.time >= throwTime + throwCooldown)
+        //     // {
+        //     //     throwTime = Time.time;
+        //     //     GameObject p = Instantiate(projectile, transform.position, transform.rotation);
+        //     // }
 
-            // Candy Type 2: Updated Version of Shooting Candy (with directions)
-            Vector2 shootDirection = (currentPosition - lastPosition).normalized;
-            if (shootDirection.normalized.Equals(new Vector2(0, 1)) || shootDirection.normalized.Equals(new Vector2(0, -1))) {
-                return;
-            }
+        //     // Candy Type 2: Updated Version of Shooting Candy (with directions)
+        //     Vector2 shootDirection = (currentPosition - lastPosition).normalized;
+        //     if (shootDirection.normalized.Equals(new Vector2(0, 1)) || shootDirection.normalized.Equals(new Vector2(0, -1))) {
+        //         return;
+        //     }
 
-            if (shootDirection.normalized.Equals(Vector2.zero)) {
-                if (!sr.flipX) {
-                    shootDirection = new Vector2(1, 0);
-                } else {
-                    shootDirection = new Vector2(-1, 0);
-                }
-            }
-            Candy.Create(candy, this.transform.position, shootDirection);
+        //     if (shootDirection.normalized.Equals(Vector2.zero)) {
+        //         if (!sr.flipX) {
+        //             shootDirection = new Vector2(1, 0);
+        //         } else {
+        //             shootDirection = new Vector2(-1, 0);
+        //         }
+        //     }
+        //     Candy.Create(candy, this.transform.position, shootDirection);
             
-        }
+        // }
         if (InputMap.Instance.GetInput(Action.RIGHT))
         {
             horizontalMovement++;
@@ -142,10 +142,10 @@ public class BasicMovement : MonoBehaviour
             animator.SetFloat("Speed", velocity.sqrMagnitude);
             isSneaking = false;
         }
-        if (InputMap.Instance.GetInputDown(Action.STOMP))
-        {
-            GameObject sdClone = Instantiate(soundDistractionPrefab, transform);
-        }
+        // if (InputMap.Instance.GetInputDown(Action.STOMP))
+        // {
+        //     GameObject sdClone = Instantiate(soundDistractionPrefab, transform);
+        // }
 
         lastPosition = currentPosition;
 
@@ -178,7 +178,7 @@ public class BasicMovement : MonoBehaviour
     public void TakeDamage(int damage) {
         currentHealth -= damage;
         if (currentHealth <= 0)
-            SceneManager.LoadScene("GameFAIL");
+            SceneManager.LoadScene("BadEnd");
         healthBar.SetHealth(currentHealth);
         cameraShake.Shake(0.05f, 0.2f);
     }

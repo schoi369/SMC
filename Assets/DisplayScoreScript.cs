@@ -10,6 +10,7 @@ public class DisplayScoreScript : MonoBehaviour
     public Text highestAlertLevel;
     public Text TotalScore;
     public Text Rank;
+    public Text Comment;
 
     void Start()
     {
@@ -18,5 +19,7 @@ public class DisplayScoreScript : MonoBehaviour
         highestAlertLevel.text = ScoreManagerScript.Instance.highestAlertToString();
         TotalScore.text = ScoreManagerScript.Instance.calculateTotalScore().ToString();
         Rank.text = ScoreManagerScript.Instance.calculateRank();
+        Comment.text = ScoreManagerScript.Instance.chooseComment();
+
     }
 }

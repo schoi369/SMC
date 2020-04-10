@@ -14,6 +14,7 @@ public class ScoreManagerScript : MonoBehaviour
     public int highestAlertPercentage;
     public int totalScore = 0;
     public string rank;
+    public string comment;
 
     private void Awake() {
         if (Instance == null) {
@@ -108,6 +109,19 @@ public class ScoreManagerScript : MonoBehaviour
             rank = "D";
         }
         return rank;
+    }
+
+    public string chooseComment() {
+        if (rank == "S") {
+            comment = "Senpai loves me! Happy Valentine's Day!";
+        } else if (rank == "A") {
+            comment = "Senpai and I might go out together!";
+        } else if (rank == "B") {
+            comment = "Senpai noticed me!";
+        } else if (rank == "C") {
+            comment = "Senpai said thank you, but didn't seem happy...";
+        }
+        return comment;
     }
 
 }
