@@ -9,6 +9,11 @@ public enum Action
 }
 public class InputMap : Singleton<InputMap>
 {
+    private void Awake()
+    {
+        DDOL();
+    }
+
     IDictionary<Action, KeyCode> act = new Dictionary<Action, KeyCode>();
     void Start()
     {

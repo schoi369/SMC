@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Testing Purpose/GameFAIL.unity
     guid: 9800fef9fe6db46ea8c5e0e123e723a5
   - enabled: 1
-    path: Assets/Scenes/Testing Purpose/GoodEnd.unity
+    path: Assets/Scenes/GoodEnd.unity
     guid: 82f3b6551cf4d4469a36edd62c1deca9
   - enabled: 0
     path: Assets/Scenes/Testing Purpose/Demo.unity

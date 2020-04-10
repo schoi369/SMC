@@ -148,6 +148,9 @@ public class BasicMovement : MonoBehaviour
         }
 
         lastPosition = currentPosition;
+
+        ScoreManagerScript.Instance.leftHealth = currentHealth;
+
     }
 
     public void MeleeAttack()

@@ -16,6 +16,8 @@ public class AlertLevel : MonoBehaviour
 
     private int detectionCounter;
 
+    public int highestAlertPercentage = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,10 @@ public class AlertLevel : MonoBehaviour
         //     increaseAlertPercentage(10);
         // }
         //updateText();
+        if (currentAlertPercentage > highestAlertPercentage) {
+            highestAlertPercentage = currentAlertPercentage;
+            ScoreManagerScript.Instance.highestAlertPercentage = highestAlertPercentage;
+        }
     }
 
     private void decreaseAlertPercentage() {

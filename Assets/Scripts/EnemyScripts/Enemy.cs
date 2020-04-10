@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
      * Changing the radius of the Circle Collider 2D component will change its area.
      */
 
-    public float attackCooldown = 1.0f;
+    public float attackCooldown = 0.7f;
     public float idleSpeed = 1.0f;
     public float chaseSpeed = 2.1f;
 
