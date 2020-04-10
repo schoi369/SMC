@@ -190,7 +190,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &463176604
 GameObject:
@@ -270,8 +270,147 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &580829022
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6460985011937211338, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_Name
+      value: Senpai's Hallway-Hub Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.780802
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.7909226
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906351, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011478676492, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011478676492, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 18.45116
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906345, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: doorName
+      value: Senpai's Hallway-Hub Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906345, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: nextDoorName
+      value: Hub-Senpai's Hallway Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906345, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: nextSceneName
+      value: _Level3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5afe6c5244862664294461be71a9af41, type: 3}
 --- !u!1 &593176536
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +488,100 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593176536}
   m_CullTransparentMesh: 0
+--- !u!1001 &1233957154
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6460985011937211338, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_Name
+      value: Senpai's Hallway-Senpai's Classroom Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.8623084
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.16095348
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011478676492, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.499
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011478676492, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906345, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: doorName
+      value: Senpai's Hallway-Senpai's Classroom Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906345, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: nextDoorName
+      value: Senpai's Classroom-Senpai's Hallway Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906345, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: nextSceneName
+      value: _Level5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5afe6c5244862664294461be71a9af41, type: 3}
 --- !u!1 &1307713247
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,110 +675,13 @@ RectTransform:
   - {fileID: 1448450649}
   - {fileID: 593176537}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &1409069669
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8264204938379170528, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.479
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170528, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.115
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170528, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170528, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170528, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170528, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170528, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170528, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170528, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170528, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170528, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170532, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: m_Name
-      value: Door
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170539, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: doorName
-      value: TT2_Door1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170539, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: nextDoorName
-      value: TT1_Door1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170539, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: nextSceneName
-      value: TransitionTest1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264204938379170529, guid: 37ce063fa046702428493cabf364f64c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1907437518, guid: 37ce063fa046702428493cabf364f64c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.124
-      objectReference: {fileID: 0}
-    - target: {fileID: 1907437518, guid: 37ce063fa046702428493cabf364f64c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 37ce063fa046702428493cabf364f64c, type: 3}
 --- !u!224 &1448450649 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5693862493415205112, guid: 214564118f1593c49bbd5e6cdb4442e2,
@@ -594,7 +730,7 @@ Transform:
   m_Children:
   - {fileID: 1806276136}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1556336133
 MonoBehaviour:
@@ -609,8 +745,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 163190133}
-  minPosition: {x: -0.88, y: -0.49}
-  maxPosition: {x: 0.88, y: 0.67}
+  minPosition: {x: -5.22, y: -1.5}
+  maxPosition: {x: 5.22, y: 1.56}
 --- !u!1 &1806276132
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,12 +859,12 @@ PrefabInstance:
     - target: {fileID: 4331616448495717827, guid: 026ea7937d29b524f9adbd23be85bef4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.78
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: 4331616448495717827, guid: 026ea7937d29b524f9adbd23be85bef4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.66
+      value: -2.05
       objectReference: {fileID: 0}
     - target: {fileID: 4331616448495717827, guid: 026ea7937d29b524f9adbd23be85bef4,
         type: 3}
@@ -976,7 +1112,7 @@ PrefabInstance:
     - target: {fileID: 3109917146415253464, guid: d99a7d4090c4c114c96ee07b3e28b1c4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3109917146415253464, guid: d99a7d4090c4c114c96ee07b3e28b1c4,
         type: 3}

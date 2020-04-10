@@ -190,7 +190,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &593176536
 GameObject:
@@ -347,7 +347,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1307713247
 GameObject:
@@ -442,7 +442,7 @@ RectTransform:
   - {fileID: 1448450649}
   - {fileID: 593176537}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -497,7 +497,7 @@ Transform:
   m_Children:
   - {fileID: 1806276136}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1556336133
 MonoBehaviour:
@@ -514,6 +514,145 @@ MonoBehaviour:
   target: {fileID: 163190133}
   minPosition: {x: -1.74, y: -5.91}
   maxPosition: {x: 1.88, y: 5.91}
+--- !u!1001 &1565646704
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6460985011937211338, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_Name
+      value: Hub-Senpai's Hallway Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906351, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011478676492, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011478676492, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.356
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12.456
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906345, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: doorName
+      value: Hub-Senpai's Hallway Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906345, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: nextDoorName
+      value: Senpai's Hallway-Hub Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906345, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: nextSceneName
+      value: _Level4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5afe6c5244862664294461be71a9af41, type: 3}
 --- !u!1 &1806276132
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,6 +750,140 @@ Transform:
   m_Father: {fileID: 1556336132}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1838501407
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6460985011937211338, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_Name
+      value: Hub-Player's Hallway Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906351, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011478676492, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011478676492, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.356
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12.456
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906350, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906345, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: doorName
+      value: Hub-Player's Hallway Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906345, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: nextDoorName
+      value: Player's Hallway-Hub Door
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5afe6c5244862664294461be71a9af41, type: 3}
 --- !u!1001 &4331616448431176100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -879,7 +1152,7 @@ PrefabInstance:
     - target: {fileID: 3109917146415253464, guid: d99a7d4090c4c114c96ee07b3e28b1c4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3109917146415253464, guid: d99a7d4090c4c114c96ee07b3e28b1c4,
         type: 3}
