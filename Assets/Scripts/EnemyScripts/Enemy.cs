@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
 
     public float attackCooldown = 1.0f;
     public float idleSpeed = 1.0f;
-    public float chaseSpeed = 2.3f;
+    public float chaseSpeed = 2.1f;
 
     public GameObject lineOfSight;
     public GameObject losIndicator; //For demo purposes
