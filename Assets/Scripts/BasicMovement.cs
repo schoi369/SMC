@@ -32,6 +32,8 @@ public class BasicMovement : MonoBehaviour
     public Camera mainCam;
     CameraShake cameraShake;
 
+    public GameObject soundDistractionPrefab;
+
     public void Awake() {
         sr = GetComponent<SpriteRenderer>();
         mainCam = Camera.main;
@@ -130,6 +132,10 @@ public class BasicMovement : MonoBehaviour
             rb.velocity = velocity.normalized * speed;
             animator.SetFloat("Speed", velocity.sqrMagnitude);
             isSneaking = false;
+        }
+        if (InputMap.Instance.GetInputDown(Action.STOMP))
+        {
+            Instantiate(soundDistractionPrefab, transform);
         }
 
         lastPosition = currentPosition;

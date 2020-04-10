@@ -59,6 +59,11 @@ public class Enemy : MonoBehaviour
 
     public GameObject player;
 
+    public float noiseChaseMaxTime = 4.0f; // How long will the enemy try to find the noise
+    private bool heardNoise;
+    private Vector3 noiseLocation;
+    private float noiseChaseTimeout;
+
     void Start()
     {
         player = GameObject.Find("Player-chan");
@@ -73,6 +78,9 @@ public class Enemy : MonoBehaviour
 
         playerSpotted = false;
         spottedIndex = 0;
+
+        heardNoise = false;
+        noiseChaseTimeout = 0.0f;
 
         EnemyChildDelegate losChild = lineOfSight.AddComponent<EnemyChildDelegate>();
         losChild.Parent = this;
@@ -120,6 +128,14 @@ public class Enemy : MonoBehaviour
             }
         }
         
+        if (heardNoise)
+        {
+            if (Time.time >= noiseChaseTimeout)
+            {
+                heardNoise = false;
+            }
+        }
+
         manageSpotted();
         manageRange();
     }
@@ -174,6 +190,7 @@ public class Enemy : MonoBehaviour
         if (spottedIndex > 40) {
             playerSpotted = true;
             spottedSign.GetComponent<SpriteRenderer>().enabled = true;
+            heardNoise = false;
             /*
             if (!sr.flipX && player.transform.position.x <= this.transform.position.x) {
                 //sr.flipX = true;
@@ -207,6 +224,13 @@ public class Enemy : MonoBehaviour
             // this.enabled = false;
             isDead = true;
         }
+    }
+
+    public void HeardSuspiciousNoise(Vector2 location)
+    {
+        heardNoise = true;
+        noiseLocation = location;
+        noiseChaseTimeout = Time.time + noiseChaseMaxTime;
     }
 
     public void JumpAttack()
@@ -503,6 +527,37 @@ public class Enemy : MonoBehaviour
     }
 
     [Task]
+    public bool HeardNoise()
+    {
+        Debug.Log("Heard noise is " + heardNoise);
+        return heardNoise;
+    }
+
+    [Task]
+    public void MoveTo_Noise()
+    {
+        if (Vector2.Distance(transform.position, noiseLocation) <= 0.5f)
+        {
+            Task.current.Succeed();
+        }
+        else
+        {
+            Vector3 dir = Vector3.Normalize(noiseLocation - transform.position);
+            rb.MovePosition(transform.position + dir * Time.deltaTime * idleSpeed);
+            isRunning = false;
+            isWalking = true;
+        }
+        //WaitArrival(noiseLocation);
+    }
+
+    [Task]
+    public bool Forget_Noise()
+    {
+        heardNoise = false;
+        return true;
+    }
+
+    [Task]
     bool SetDestination_Waypoint()
     {
         bool isSet = false;
@@ -522,15 +577,29 @@ public class Enemy : MonoBehaviour
         bool isSet = false;
         if (waypointTarget != null)
         {
-            if (transform.position.x < waypointTarget.x)
-                //sr.flipX = false;
-                FaceRight();
-            else
-                //sr.flipX = true;
-                FaceLeft();
+            FlipTowardPosition(waypointTarget);
             isSet = true;
         }
         return isSet;
+    }
+
+    [Task]
+    bool FlipToward_Noise()
+    {
+        if (noiseLocation != null)
+        {
+            FlipTowardPosition(noiseLocation);
+            return true;
+        }
+        return false;
+    }
+
+    private void FlipTowardPosition(Vector3 position)
+    {
+        if (transform.position.x < position.x)
+            FaceRight();
+        else
+            FaceLeft();
     }
 
     float currPos = 0f;
@@ -548,14 +617,14 @@ public class Enemy : MonoBehaviour
         rb.MovePosition(transform.position + dir * Time.deltaTime * idleSpeed);
         isRunning = false;
         isWalking = true;
-        WaitArrival();
+        WaitArrival(waypointTarget);
     }
 
     [Task]
-    public void WaitArrival()
+    public void WaitArrival(Vector3 position)
     {
         var task = Task.current;
-        float d = Vector3.Distance(transform.position, waypointTarget);
+        float d = Vector2.Distance(transform.position, position);
         if (!task.isStarting && d <= 0.2f)
         {
             task.Succeed();
