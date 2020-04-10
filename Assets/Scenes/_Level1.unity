@@ -634,6 +634,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Podium
       objectReference: {fileID: 0}
+    - target: {fileID: 7511527480372222038, guid: 06729dbc5c8397944a8aaa8916e23986,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8705651975617046016, guid: 06729dbc5c8397944a8aaa8916e23986,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -698,6 +703,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.192
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215525277097322440, guid: 06729dbc5c8397944a8aaa8916e23986,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06729dbc5c8397944a8aaa8916e23986, type: 3}
@@ -890,7 +900,7 @@ GameObject:
   - component: {fileID: 821747070}
   - component: {fileID: 821747072}
   - component: {fileID: 821747071}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: New Sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1183,7 +1193,7 @@ GameObject:
   - component: {fileID: 1021967571}
   - component: {fileID: 1021967573}
   - component: {fileID: 1021967572}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: New Sprite (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1756,7 +1766,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1495920688}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1793,7 +1803,7 @@ GameObject:
   - component: {fileID: 1525482356}
   - component: {fileID: 1525482358}
   - component: {fileID: 1525482357}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: New Sprite (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2151,7 +2161,7 @@ GameObject:
   - component: {fileID: 1719506988}
   - component: {fileID: 1719506990}
   - component: {fileID: 1719506989}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: New Sprite (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2258,7 +2268,7 @@ GameObject:
   - component: {fileID: 1727326669}
   - component: {fileID: 1727326671}
   - component: {fileID: 1727326670}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2460,7 +2470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2001579797}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2889,6 +2899,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211338, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2953,6 +2968,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906346, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011478676493, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5afe6c5244862664294461be71a9af41, type: 3}

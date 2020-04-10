@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
 
     public float attackCooldown = 1.0f;
     public float idleSpeed = 1.0f;
-    public float chaseSpeed = 3.0f;
+    public float chaseSpeed = 2.3f;
 
     public GameObject lineOfSight;
     public GameObject losIndicator; //For demo purposes
@@ -143,12 +143,14 @@ public class Enemy : MonoBehaviour
     // Change range of sight and vision based on alert level
     void manageRange() {
         if (Alert_Level_None()) {
-            lineOfSight.transform.localScale = new Vector3 (1.4f, 1, 1);
-        } else if (Alert_Level_Low()) {
             lineOfSight.transform.localScale = new Vector3 (1.6f, 1, 1);
-        } else if (Alert_Level_Medium()) {
+        } else if (Alert_Level_Low()) {
             lineOfSight.transform.localScale = new Vector3 (1.8f, 1, 1);
-        }
+        } else if (Alert_Level_Medium()) {
+            lineOfSight.transform.localScale = new Vector3 (2.0f, 1, 1);
+        } else if (Alert_Level_High()) {
+            lineOfSight.transform.localScale = new Vector3 (2.2f, 1, 1);
+        } 
     }
 
     private void LateUpdate()
@@ -625,7 +627,7 @@ public class Enemy : MonoBehaviour
     {
         var task = Task.current;
         float d = Vector2.Distance(transform.position, position);
-        if (!task.isStarting && d <= 0.4f)
+        if (!task.isStarting && d <= 0.25f)
         {
             task.Succeed();
         }

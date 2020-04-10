@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 40255593}
   - component: {fileID: 40255594}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 67914737}
   - component: {fileID: 67914738}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 624038293}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,6 +424,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011937211338, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6460985011937211337, guid: 5afe6c5244862664294461be71a9af41,
         type: 3}
@@ -530,6 +535,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.057
       objectReference: {fileID: 0}
+    - target: {fileID: 6460985010911906346, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460985011478676493, guid: 5afe6c5244862664294461be71a9af41,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6460985010911906345, guid: 5afe6c5244862664294461be71a9af41,
         type: 3}
       propertyPath: doorName
@@ -630,7 +645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1257054469}
   - component: {fileID: 1257054470}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1556058156}
   - component: {fileID: 1556058157}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,7 +912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1732496037}
   - component: {fileID: 1732496038}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1051,7 +1066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2071272028}
   - component: {fileID: 2071272029}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
