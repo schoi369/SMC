@@ -11,6 +11,8 @@ public class GoodEndScript : MonoBehaviour
         Destroy(go);
         BasicMovement.currentHealth = 100;
         AlertLevel.currentAlertPercentage = 0;
+        FindObjectOfType<AudioManager>().StopPlaying("1");
+        FindObjectOfType<AudioManager>().Play("Theme");
         SceneManager.LoadScene("Main Menu");
     }
 }

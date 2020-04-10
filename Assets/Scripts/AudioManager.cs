@@ -44,6 +44,7 @@ public class AudioManager : MonoBehaviour
     }
 
     void Start() {
+        StopPlaying("1");
         Play("Theme");
     }
 
