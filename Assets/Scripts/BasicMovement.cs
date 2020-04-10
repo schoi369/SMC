@@ -60,7 +60,6 @@ public class BasicMovement : MonoBehaviour
 
     void Update()
     {
-
         Vector2 currentPosition = this.transform.position;
 
         if (rb.velocity.Equals(Vector2.zero)) {
@@ -77,6 +76,7 @@ public class BasicMovement : MonoBehaviour
 
         if (InputMap.Instance.GetInput(Action.ATTACK) && (Time.time >= lastMeleeTime + meleeCooldown))
         {
+            FindObjectOfType<AudioManager>().Play("Player Attack");
             animator.SetTrigger("Attack");
             isAttacking = true;
             rb.velocity = Vector2.zero;
@@ -165,10 +165,14 @@ public class BasicMovement : MonoBehaviour
         {
             Enemy hitEnemy = hit.collider.gameObject.GetComponent<Enemy>();
             
-            if (hitEnemy.SpriteRenderer.flipX == sr.flipX)
+            if (hitEnemy.SpriteRenderer.flipX == sr.flipX) {
                 hitEnemy.Damage(3);
-            else
+                FindObjectOfType<AudioManager>().Play("damage2");
+            }
+            else {
                 hitEnemy.Damage(1);
+                FindObjectOfType<AudioManager>().Play("damage1");
+            }
             
             TakeDamage(10);
         }
