@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MenuButtonsManager : MonoBehaviour
 {
     public void StartGame() {
+        FindObjectOfType<AudioManager>().StopPlaying("Theme");
+        FindObjectOfType<AudioManager>().Play("1");
         SceneManager.LoadScene("_Level1");
     }
 

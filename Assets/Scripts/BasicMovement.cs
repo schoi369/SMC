@@ -60,6 +60,7 @@ public class BasicMovement : MonoBehaviour
 
     void Update()
     {
+
         Vector2 currentPosition = this.transform.position;
 
         if (rb.velocity.Equals(Vector2.zero)) {
