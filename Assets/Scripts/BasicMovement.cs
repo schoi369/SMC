@@ -152,6 +152,7 @@ public class BasicMovement : MonoBehaviour
 
         ScoreManagerScript.Instance.leftHealth = currentHealth;
 
+        
     }
 
     public void MeleeAttack()
