@@ -10,15 +10,25 @@ tree("Root")
 			tree("Idle")
 
 tree("Idle")
-	while not PlayerSpotted
-		repeat
-			sequence
-				//not PlayerSpotted
-				SetDestination_Waypoint
-				FlipToward_Target
-				MoveTo_Destination
-				Wait(0.3)
-				NextWaypoint
+	fallback
+		while HeardNoise
+			repeat
+				sequence
+					FlipToward_Noise
+					MoveTo_Noise
+					Wait(2.0)
+					Forget_Noise
+
+		while not PlayerSpotted
+			repeat
+				sequence
+					//not PlayerSpotted
+					not HeardNoise
+					SetDestination_Waypoint
+					FlipToward_Target
+					MoveTo_Destination
+					Wait(0.3)
+					NextWaypoint
 		
 tree("AlertLow")
 	sequence
