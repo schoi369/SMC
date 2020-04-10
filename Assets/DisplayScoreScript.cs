@@ -16,5 +16,7 @@ public class DisplayScoreScript : MonoBehaviour
         timeText.text = ScoreManagerScript.Instance.timeToString();
         healthText.text = ScoreManagerScript.Instance.healthToString();
         highestAlertLevel.text = ScoreManagerScript.Instance.highestAlertToString();
+        TotalScore.text = ScoreManagerScript.Instance.calculateTotalScore().ToString();
+        Rank.text = ScoreManagerScript.Instance.calculateRank();
     }
 }

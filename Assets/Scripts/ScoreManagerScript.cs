@@ -13,7 +13,7 @@ public class ScoreManagerScript : MonoBehaviour
     public float leftHealth;
     public int highestAlertPercentage;
     public int totalScore = 0;
-
+    public string rank;
 
     private void Awake() {
         if (Instance == null) {
@@ -39,7 +39,17 @@ public class ScoreManagerScript : MonoBehaviour
     }
 
     void calculateTimeScore() {
-        
+        if (t <= 60) {
+            totalScore += 13000;
+        } else if (t > 60 && t <= 120) {
+            totalScore += 9000;
+        } else if (t > 120 && t <= 180) {
+            totalScore += 7000;
+        } else if (t > 180 && t <= 240) {
+            totalScore += 5000;
+        } else if (t > 240) {
+            totalScore += 3000;
+        }
     }
 
     public string healthToString() {
@@ -62,6 +72,42 @@ public class ScoreManagerScript : MonoBehaviour
 
     public string highestAlertToString() {
         return "Highest Alert % Reached: " + highestAlertPercentage.ToString() + "%";
+    }
+
+    void calculateAlertScore() {
+        if (highestAlertPercentage <= 20) {
+            totalScore += 13000;
+        } else if (highestAlertPercentage > 20 && highestAlertPercentage <= 40) {
+            totalScore += 9000;
+        } else if (highestAlertPercentage > 40 && highestAlertPercentage <= 60) {
+            totalScore += 7000;
+        } else if (highestAlertPercentage > 60 && highestAlertPercentage <= 80) {
+            totalScore += 5000;
+        } else if (highestAlertPercentage > 80) {
+            totalScore += 3000;
+        }
+    }
+
+    public int calculateTotalScore() {
+        calculateTimeScore();
+        calculateHealthScore();
+        calculateAlertScore();
+        return totalScore;
+    }
+
+    public string calculateRank() {
+        if (totalScore >= 35000) {
+            rank = "S";
+        } else if (totalScore < 35000 && totalScore >= 25000) {
+            rank = "A";
+        } else if (totalScore < 25000 && totalScore >= 19000) {
+            rank = "B";
+        } else if (totalScore < 19000 && totalScore >= 13000) {
+            rank = "C";
+        } else if (totalScore < 13000) {
+            rank = "D";
+        }
+        return rank;
     }
 
 }
